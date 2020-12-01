@@ -7,19 +7,20 @@ object Day01 extends App {
   val filename = "../input01"
   val numbers = Source.fromFile(filename).getLines.map(_.toInt).toArray.sorted
 
-  def part1() = {
-    def bsearch(l:Array[Int],goal:Int,start:Int): Option[Int] = {
-      var left = 0
-      var right = l.length - 1
-      while (right >= left) {
-        val mid = left + ((right - left) / 2)
-        val cur = l(mid) + start
-          if(cur == goal) return Some(l(mid))
-          if(cur > goal ) right = mid-1
-          else left = mid+1
-        }
-      None
+  def bsearch(l:Array[Int], goal:Int, start:Int): Option[Int] = {
+    var left = 0
+    var right = l.length - 1
+    while (right >= left) {
+      val mid = left + ((right - left) / 2)
+      val cur = l(mid) + start
+      if(cur == goal) return Some(l(mid))
+      if(cur > goal ) right = mid-1
+      else left = mid+1
     }
+    None
+  }
+
+  def part1() = {
 
     var res:Option[Int] = None
     var i = numbers.init
@@ -38,6 +39,25 @@ object Day01 extends App {
 
   def part2() ={
 
+    var ptrs = Array(0,1,2)
+
+    while(true){
+      if(ptrs.map(numbers).sum == 2020) {
+        println(ptrs.map(numbers).product)
+      } else {
+        ptrs(2)+=1
+        if(ptrs(2)>= numbers.size) {
+          ptrs(1) +=1
+          if(ptrs(1)>= numbers.size) {
+            ptrs(0) +=1
+            ptrs(1) = ptrs(0)+1
+          }
+          ptrs(2) = ptrs(1)
+        }
+      }
+    }
+
   }
-  part1()
+
+  part2()
 }
