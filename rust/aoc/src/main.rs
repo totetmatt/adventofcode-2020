@@ -19,7 +19,9 @@ fn main() {
         let found = data.binary_search(&diff);
        
         match found {
-            Ok(x) => println!("{:?} {:?} {:?} {:?}",data[x],last,data[x]+last,data[x]*last) ,
+            Ok(x) => {
+                println!("{:?} {:?} {:?} {:?}",data[x],last,data[x]+last,data[x]*last) ; 
+                break}
             Err(_) =>  () ,
         }
     }
