@@ -43,7 +43,10 @@ object Day01 extends App {
 
     while(true){
       if(ptrs.map(numbers).sum == 2020) {
+        ptrs.map( x =>x -> numbers(x)).foreach(println)
         println(ptrs.map(numbers).product)
+        println(numbers.slice(0, 12).mkString("Array(", ", ", ")"))
+        System.exit(0)
       } else {
         ptrs(2)+=1
         if(ptrs(2)>= numbers.size) {
