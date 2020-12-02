@@ -103,7 +103,7 @@ fn day02() {
         let mut sChar: HashSet<char> = HashSet::new();
         sChar.insert(password.as_bytes()[n1] as char);
         sChar.insert(password.as_bytes()[n2] as char);
-        if sChar.contains(&checkChar) && sChar.len() == 1 {
+        if sChar.contains(&checkChar) && sChar.len() == 2 {
             1
         } else {
             0
