@@ -53,7 +53,7 @@ pub fn day04() {
                             .chars()
                             .by_ref()
                             .take_while(|&x| x.is_digit(10) == false)
-                            .collect()
+                            //.collect()
                             .len()
                             == 0
                     }
