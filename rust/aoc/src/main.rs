@@ -1,7 +1,4 @@
-extern crate regex;
-pub mod day01;
-pub mod day02;
-pub mod day03;
+pub mod day04;
 fn main() {
-    day03::day03();
+    day04::day04();
 }
