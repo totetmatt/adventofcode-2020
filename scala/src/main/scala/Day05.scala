@@ -1,4 +1,5 @@
 import scala.annotation.tailrec
+
 import scala.io.Source
 
 object Day05 extends App {
@@ -35,9 +36,8 @@ object Day05 extends App {
 
   def getSeatId(seqChar: String): Int = {
     val (row, seat) = seqChar.splitAt(7)
-    val rowId = getRow(row.toList)
-    val seatNumber = getSeat(seat.toList)
-    computeSeatId(rowId, seatNumber)
+
+    computeSeatId(getRow(row.toList), getSeat(seat.toList))
   }
 
   val idsParsed = ids.map(getSeatId)
