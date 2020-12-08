@@ -1,3 +1,4 @@
+import scala.annotation.tailrec
 import scala.collection.{immutable, mutable}
 import scala.io.Source
 
@@ -16,9 +17,9 @@ object Day08 extends App {
     i=> val Array(op,va)= i.split(" ")
 
     op match {
-      case "nop" => Nop(va.toString.toInt)
-      case "jmp" => Jmp(va.toString.toInt)
-      case "acc" => Acc(va.toString.toInt)
+      case "nop" => Nop(va.toInt)
+      case "jmp" => Jmp(va.toInt)
+      case "acc" => Acc(va.toInt)
     }
   }.toArray[Ops]
 
@@ -26,9 +27,10 @@ object Day08 extends App {
                           visited:immutable.HashSet[Int]= immutable.HashSet.empty[Int],
                           pointer:Int=0,
                           changed: Boolean=false)
+
   def run(instructions:Array[Ops],state:StateMachine) : Ret = {
-    if(state.visited.contains(state.pointer)) Ret(false,state.acc)
-      else if (state.pointer>=instructions.length) Ret(true,state.acc)
+    if(state.visited.contains(state.pointer)) Ret(finished = false,state.acc)
+    else if (state.pointer>=instructions.length) Ret(finished = true,state.acc)
     else {
       val visited = state.visited + state.pointer
       instructions(state.pointer) match {
