@@ -1,4 +1,4 @@
-pub mod day07;
+pub mod day08;
 fn main() {
-    day07::day07();
+    day08::day08();
 }
