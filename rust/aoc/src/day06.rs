@@ -16,9 +16,7 @@ pub fn day06() {
             .collect();
         let a: &HashSet<char> = q.first().unwrap();
         q.iter()
-            .fold(a, |agg, x| {
-                agg.intersection(&x).cloned().collect::<HashSet<char>>()
-            })
+            .fold(a, |agg, x| agg.intersection(&x).collect::<HashSet<_>>())
             .len()
     }
     let contents =
