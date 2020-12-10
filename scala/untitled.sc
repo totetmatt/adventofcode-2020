@@ -1,2 +1,1 @@
-val q= "1 coco laping".split(" ")
-println(q.head,q.tail.mkString(" "))
+Seq("A","B","C","D").sliding(3).toSeq
