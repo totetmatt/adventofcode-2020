@@ -1,1 +1,1 @@
-Seq("A","B","C","D").sliding(3).toSeq
+Array(1,2,1,1,2).filter(_ == 2)
