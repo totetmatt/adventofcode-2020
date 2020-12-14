@@ -1,1 +1,1 @@
-Array(1,2,1,1,2).filter(_ == 2)
+42.toBinaryString
